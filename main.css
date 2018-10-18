@@ -2,3 +2,40 @@
   margin: 0px;
   padding: 0px;
 }
+#planets {
+  margin: 3%;
+  width: 94%;
+  background-color: black;
+}
+#pTitle{
+  color: green;
+  text-align: center;
+  padding: 3%;
+  font-size: 5vw;
+  font-weight: bold;
+}
+.divPlanetName {
+  color: gold;
+  padding: 1%;
+  text-align: center;
+}
+#eTitle{
+  text-align: left;
+  color: white;
+  padding: 3%;
+  font-size: 5vw;
+  font-weight: bold;
+}
+.planetWithE {
+  color: blue;
+  text-align: left;
+  padding: 1%;
+  font-weight: bold;
+}
+#stringElem {
+  color: red;
+  text-align: right;
+  padding: 3%;
+  font-size: 5vw;
+  font-weight: bold;
+}
