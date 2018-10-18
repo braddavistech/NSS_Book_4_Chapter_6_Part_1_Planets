@@ -1,29 +1,54 @@
 const planets = ["mercury", "venus", "earth", "mars", "jupiter", "saturn", "uranus", "neptune"]
+let planetEl = document.getElementById("planets");
+const correctName = [];
+const planetWithE = [];
+let tempHolder = document.createDocumentFragment();
+let stringElemSent = "";
+const words = ["The", "early", "bird", "might", "get", "the", "worm,", "but", "the", "second", "mouse", "gets", "the", "cheese."]
 
-/*
-    Use the forEach method to add the name of each planet
-    to a section element in your HTML with an id of "planets".
-    Use string templates to construct the DOM elements.
-*/
-const planetEl = document.getElementById("planets")
+function printPlanets (planet) {
+  let tempPlanet = document.createElement("p");
+  tempPlanet.setAttribute("class", "divPlanetName");
+  tempPlanet.textContent = planet;
+  tempHolder.appendChild(tempPlanet);
+};
 
-/*
-    Use the map method to create a new array where the
-    first letter of each planet is capitalized. Use the
-    `toUpperCase()` method on strings.
+const correctCapitol = planets.map(function (planet) {
+  let tempPlanet = planet.charAt(0).toUpperCase() + planet.substr(1);
+  correctName.push(tempPlanet);
+});
 
-    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase
-*/
+const planetE = correctName.filter(function (planet) {
+  let ePosition = planet.search(/e/i);
+  if (ePosition != -1) {
+    planetWithE.push(planet);
+  }
+});
 
+const printTitle = (sectionID, title) => {
+  let tempPlanet = document.createElement("h1");
+  tempPlanet.setAttribute("id", sectionID);
+  tempPlanet.textContent = title;
+  tempHolder.appendChild(tempPlanet);
+};
 
-/*
-    Use the filter method to create a new array that
-    contains planets with the letter 'e'. Use the `includes()`
-    method on strings.
+function printPlanetsE (planet) {
+  let tempPlanet = document.createElement("p");
+  tempPlanet.setAttribute("class", "planetWithE");
+  tempPlanet.textContent = planet;
+  tempHolder.appendChild(tempPlanet);
+};
 
-    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes
-*/
+const sentenceCreate = (total, word) => {
+  return total + ` ` + word;
+}
 
+planets.correctCapitol;
+correctName.planetE;
+printTitle("pTitle", "Total planets in list.")
+correctName.forEach(printPlanets);
+printTitle("eTitle", "Planets with an `e` in the name.");
+planetWithE.forEach(printPlanetsE);
+printTitle("stringElem", words.reduce(sentenceCreate));
 
-// Use the reduce method to create a sentence from the words in the following array
-const words = ["The", "early", "bird", "might", "get", "the", "worm", "but", "the", "second", "mouse", "gets", "the", "cheese"]
+planetEl.appendChild(tempHolder);
